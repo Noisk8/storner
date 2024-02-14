@@ -4,6 +4,8 @@ import { Inter } from "next/font/google";
 import Link from "next/link";
 import { Header } from "app/componentes/shared/Header";
 import { Footer } from "app/componentes/shared/Footer";
+import 'app/sass/globals.sass';
+
 
 const inter = Inter({ subsets: ["latin"] });
 
