@@ -1,14 +1,16 @@
-import type { Metadata } from "next";
+// import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import "./globals.css";
+// import "./globals.css";
 import Link from "next/link";
+import { Header } from "app/componentes/shared/Header";
+import { Footer } from "app/componentes/shared/Footer";
 
 const inter = Inter({ subsets: ["latin"] });
 
-export const metadata: Metadata = {
-  title: " 🌓 Tienda de baretos",
-  description: "ARmados y desarmados",
-};
+// export const metadata: Metadata = {
+//   title: " 🌓 Tienda de baretos",
+//   description: "ARmados y desarmados",
+// };
 
 export default function RootLayout({
   children,
@@ -17,23 +19,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      
       <body className={inter.className}>
-        <header>
-
-          <nav>
-
-            <ul>
-              <Link href="/">
-                <li>Home</li>
-              </Link>
-              <Link href="/store">
-                <li>Store</li>
-              </Link>
-            </ul>
-          </nav>
-        </header>
+      <Header />
 
         {children}</body>
+        <Footer />
     </html>
   );
 }
