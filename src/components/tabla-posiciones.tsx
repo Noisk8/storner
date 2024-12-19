@@ -1,4 +1,5 @@
-import React from 'react'
+'use client'
+import React, { useEffect, useState } from 'react'
 import {
     Table,
     TableBody,
@@ -9,36 +10,49 @@ import {
     TableRow,
   } from "@/components/ui/table"
 
+interface PosicionEquipo {
+  equipo: string;
+  puntos: number;
+  golesFavor: number;
+  golesContra: number;
+  diferenciaGoles: number;
+}
 
-export default function TablaPosiciones () {
+export default function TablaPosiciones() {
+  const [posiciones, setPosiciones] = useState<PosicionEquipo[]>([]);
 
+  // Aquí agregarías la lógica para obtener los datos de tu API
+  useEffect(() => {
+    // Fetch datos de posiciones
+  }, []);
 
   return (
     <div>
-        <Table>
-  <TableCaption>A list of your recent invoices.</TableCaption>
-  <TableHeader>
-    <TableRow>
-      <TableHead className="w-[100px]">Equipo</TableHead>
-      <TableHead>PTS</TableHead>
-      <TableHead>GF</TableHead>
-      <TableHead>GC</TableHead>
-      <TableHead className="text-right">Puntos</TableHead>
-    </TableRow>
-  </TableHeader>
-  <TableBody>
-    <TableRow>
-      <TableCell className="font-medium">INV001</TableCell>
-      <TableCell>Paid</TableCell>
-      <TableCell>Credit Card</TableCell>
-      <TableCell>Credit Card</TableCell>
-      <TableCell className="text-right">$250.00</TableCell>
-    </TableRow>
-  </TableBody>
-</Table>
-
-      
+      <Table>
+        <TableCaption>Tabla de Posiciones</TableCaption>
+        <TableHeader>
+          <TableRow>
+            <TableHead className="w-[200px]">Equipo</TableHead>
+            <TableHead>PJ</TableHead>
+            <TableHead>PTS</TableHead>
+            <TableHead>GF</TableHead>
+            <TableHead>GC</TableHead>
+            <TableHead className="text-right">DIF</TableHead>
+          </TableRow>
+        </TableHeader>
+        <TableBody>
+          {posiciones.map((posicion) => (
+            <TableRow key={posicion.equipo}>
+              <TableCell className="font-medium">{posicion.equipo}</TableCell>
+              <TableCell>{posicion.puntos}</TableCell>
+              <TableCell>{posicion.golesFavor}</TableCell>
+              <TableCell>{posicion.golesContra}</TableCell>
+              <TableCell className="text-right">{posicion.diferenciaGoles}</TableCell>
+            </TableRow>
+          ))}
+        </TableBody>
+      </Table>
     </div>
-  )
+  );
 }
 
