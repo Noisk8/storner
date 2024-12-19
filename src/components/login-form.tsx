@@ -26,7 +26,7 @@ export function LoginForm({
     e.preventDefault();
 
     try{
-      const result = await client.auth.signInWithOtp({
+      const result = await client.auth.signIn({
         email,
       });
       console.log(result)
