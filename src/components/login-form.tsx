@@ -33,6 +33,7 @@ export function LoginForm({
 
     }
     catch(error){
+      console.log(error)
 
     }
 
